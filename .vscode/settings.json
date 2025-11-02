@@ -1,0 +1,18 @@
+{
+  "files.autoSave": "onFocusChange",
+  
+  // 🔒 隐藏不想显示的文件夹
+  "files.exclude": {
+    "node_modules": true,
+    "package-lock.json": true,
+    "pnpm-lock.yaml": true,
+    "yarn.lock": true,
+  },
+
+  // 📁 文件嵌套设置
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "vite.config.js": ".gitattributes,.gitignore, eslint.config.js, index.html, package.json, README.md"
+  }
+}
