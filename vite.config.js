@@ -3,8 +3,7 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import { dirname, resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { reactGrab } from "react-grab/plugins/vite";
-import { codeInspectorPlugin } from 'code-inspector-plugin';
+
 
 
 const __filename = fileURLToPath(import.meta.url)
@@ -15,10 +14,6 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
-    reactGrab(),
-    codeInspectorPlugin({
-      bundler: 'vite',
-    }),
   ],
   resolve: {
     alias: {

@@ -1,38 +1,47 @@
 import { Canvas, extend } from "@react-three/fiber"
 import * as THREE from 'three/webgpu'
-import Boxs from "./Boxs"
-import { Environment, OrbitControls } from "@react-three/drei"
+import ColorSpace_Mapping_exposure from "@/r3f-components/ColorSpace_Mapping_exposure"
+
+import TslEffect from "./TslEffect"
+import { Leva } from "leva"
+import { Suspense } from "react"
+import { OrbitControls } from "@react-three/drei"
+import Scene1 from "./Scene1/Scene1"
+
+
+
+
 
 
 const ThreeCavnas = () => {
   return (
      <div id="canvas">
-        <Canvas
-          shadows 
-          eventSource={document.getElementById("root")} 
-          eventPrefix="client" 
-          gl={(props) => {
-          extend(THREE)
-          const renderer = new THREE.WebGPURenderer({ 
-            ...props, 
-            antialias: false,
+      <Leva position="bottom-right" hidden />
+      <Canvas
+        shadows
+        // style={{ opacity: isStart ? 1 : 0.001, transition: 'opacity 2s ease-in' }}
+        // eventSource={document.getElementById('fixedUi')}
+        // eventPrefix="client"
+        gl={(props) => {
+          extend(THREE);
+          const renderer = new THREE.WebGPURenderer({
+            ...props,
+            antialias: true, 
             alpha: true,
             powerPreference: 'high-performance',
-            // forceWebGL:true // 强制使用 WebGL
-          })
-          return renderer.init().then(() => renderer)
+            // forceWebGL: true, // 强制使用 WebGL
+          });
+          return renderer.init().then(() => renderer);
         }}
-          
-        >
-
-        <color attach="background" args={['#373737']} />
-        <Environment preset="city" />
-        
-        <Boxs/>
-     
-        <OrbitControls makeDefault enableZoom={false} />
-        </Canvas>
-      </div>
+      >
+        <Suspense>
+          <Scene1 />
+          <ColorSpace_Mapping_exposure />
+          <TslEffect  />
+        </Suspense>
+        <OrbitControls/>
+      </Canvas>
+    </div>
   )
 }
 export default ThreeCavnas
