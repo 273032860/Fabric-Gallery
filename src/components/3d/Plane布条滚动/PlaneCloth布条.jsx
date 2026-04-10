@@ -327,7 +327,7 @@ function PlaneCloths布条() {
       id: 6
     },
     {
-      path: '/public/textures/plane/worm-1024x1024.webp',
+      path: '/textures/plane/worm-1024x1024.webp',
       content: 'worm',
       id: 7
     },
