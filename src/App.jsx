@@ -1,13 +1,10 @@
-
-// import Loading from './components/ui/Loading';
-import { useState } from 'react';
 import FixedUi from '@/components/ui/FixedUi';
 import ThreeCavnas from '@/components/3d/ThreeCavnas';
 import Timeline from '@/components/ui/Timeline';
 import Lenis from '@/utils/Lenis';
+import VideoBackground from '@/components/ui/VideoBackground';
 
 function App({ lenisConfig = true }) {
-  const [isStart, setStart] = useState(false);
   return (
     <>
       {lenisConfig && (
@@ -23,7 +20,7 @@ function App({ lenisConfig = true }) {
           }
         />
       )}
-      {/* <Loading setStart={setStart} /> */}
+      <VideoBackground />
       <div className="relative">
         <FixedUi/>
         <ThreeCavnas/>

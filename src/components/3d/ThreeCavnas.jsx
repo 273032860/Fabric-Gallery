@@ -1,19 +1,15 @@
 import { Canvas, extend } from "@react-three/fiber"
 import * as THREE from 'three/webgpu'
 import ColorSpace_Mapping_exposure from "@/r3f-components/ColorSpace_Mapping_exposure"
-
-import TslEffect from "./TslEffect"
 import { Leva } from "leva"
 import { Suspense } from "react"
-import { OrbitControls } from "@react-three/drei"
-import Scene1 from "./Scene1/Scene1"
-
-
-
-
+import { Center,Stats } from "@react-three/drei"
+import { useRef } from "react"
+import PlaneCloth布条 from "./Plane布条滚动/PlaneCloth布条"
 
 
 const ThreeCavnas = () => {
+
   return (
      <div id="canvas">
       <Leva position="bottom-right" hidden />
@@ -26,20 +22,26 @@ const ThreeCavnas = () => {
           extend(THREE);
           const renderer = new THREE.WebGPURenderer({
             ...props,
-            antialias: true, 
-            alpha: true,
+            // antialias: true, 
+            // alpha: true,
             powerPreference: 'high-performance',
             // forceWebGL: true, // 强制使用 WebGL
           });
           return renderer.init().then(() => renderer);
         }}
       >
+        {/* <Stats/> */}
         <Suspense>
-          <Scene1 />
+          {/* <Scene1 /> */}
+          
           <ColorSpace_Mapping_exposure />
-          <TslEffect  />
+
+          <Center>
+         
+          <PlaneCloth布条 />
+          </Center>
         </Suspense>
-        <OrbitControls/>
+        
       </Canvas>
     </div>
   )

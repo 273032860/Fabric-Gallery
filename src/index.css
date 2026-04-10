@@ -1,31 +1,6 @@
 @import "tailwindcss";
  
-
-/* 导入字体 */
-@font-face {
-  font-family: "Regular";
-  src: url("/fonts/AlibabaPuHuiTi-3-55-Regular.otf");
-}
-
-@font-face {
-  font-family: "Medium";
-  src: url("/fonts/AlibabaPuHuiTi-3-65-Medium.otf");
-}
-
-@font-face {
-  font-family: "SemiBold";
-  src: url("/fonts/AlibabaPuHuiTi-3-75-SemiBold.otf");
-}
-
-@font-face {
-  font-family: "Bold";
-  src: url("/fonts/AlibabaPuHuiTi-3-85-Bold.otf");
-}
-@font-face {
-  font-family: "JHL";
-  src: url("/fonts/京華老宋体v2.002.ttf");
-}
-
+ 
 /* 滚动条颜色 */
 * {
   scrollbar-color: var(--color-dark-100) var(--color-black);   
@@ -111,13 +86,13 @@ body,
 /* 基于组件的样式 */
 @layer components {
   Canvas {
-    @apply w-full h-screen fixed z-0 top-0 left-0;
+    @apply w-full h-screen fixed z-10 top-0 left-0;
   }
   #loading{
     @apply flex-center fixed w-full h-full z-1000 bg-black;
   }
   #canvas{
-    @apply w-full h-screen fixed z-0 inset-0;
+    @apply w-full h-screen fixed z-10 inset-0;
   }
   #fixedUi{
     @apply z-500 h-full fixed w-full;
